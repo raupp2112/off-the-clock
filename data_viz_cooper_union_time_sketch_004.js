@@ -46,6 +46,16 @@ function draw() {
       circle(x, y, 10); // Smaller "placeholder" dot for future minutes
     }
   }
+  
+  
+   // --- Text Display ---
+  textAlign(CENTER);
+  noStroke();
+  textSize(200);
+  fill(255, 200);
+  text(hr, centerX, centerY - 100);
+  text(min, centerX, centerY + 70);
+  text(sec, centerX, centerY + 250);
 
   // 2. Large Central Circle (Seconds)
   noStroke();
@@ -66,14 +76,7 @@ function draw() {
   line(s, -s, -s, s);
   pop();
 
-  // --- Text Display ---
-  textAlign(CENTER);
-  noStroke();
-  textSize(200);
-  fill(255, 150);
-  text(hr, centerX, centerY - 100);
-  text(min, centerX, centerY + 70);
-  text(sec, centerX, centerY + 250);
+ 
 
 //  blendMode(OVERLAY)
 //    // 1. Square (using the 'hr' variable)
@@ -101,10 +104,10 @@ function draw() {
   
   
   // --- EVENLY SPACED HOUR BARS ---
-  blendMode(OVERLAY);
+  //blendMode(OVERLAY);
   rectMode(CENTER);
   //stroke(150, 0, 255, 200);
-  fill(150, 0, 255, 255);
+  fill(150, 0, 255, 60);
 
   let numberOfBars = 12;
   let barSpacing = 40; // Change this to spread them further apart or closer
