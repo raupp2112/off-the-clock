@@ -1,7 +1,18 @@
 function setup() {
-  createCanvas(500, 500);
+  var cnv = createCanvas(500, 500);
+  // Calculate center position
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  cnv.position(x, y);
   textFont('Quantico');
-  angleMode(DEGREES); 
+  angleMode(DEGREES);
+}
+
+function windowResized() {
+  // Recalculate if window changes
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  cnv.position(x, y);
 }
 
 function draw() {
@@ -9,39 +20,39 @@ function draw() {
 
   let centerX = width / 2;
   let centerY = height / 2;
-  
+
   let h24 = hour();
-  let hr = h24 % 12; 
-  if (hr === 0) hr = 12; 
-  
+  let hr = h24 % 12;
+  if (hr === 0) hr = 12;
+
   let min = minute();
   let sec = second();
-  let s = sec * 5; 
+  let s = sec * 5;
 
   // --- GRID OF 60 SQUARES (Minutes) ---
   let cols = 10;
   let rows = 6;
-  let spacing = 40; 
-  
+  let spacing = 40;
+
   let startX = centerX - (spacing * (cols - 1)) / 2;
   let startY = centerY - (spacing * (rows - 1)) / 2;
 
   rectMode(CENTER);
-  
+
   for (let i = 0; i < 60; i++) {
     let x = startX + (i % cols) * spacing;
     let y = startY + floor(i / cols) * spacing;
-    
+
     // UI Logic: Fill squares based on current minutes
     if (i < min) {
-      fill(150, 200, 255, 150); 
+      fill(150, 200, 255, 150);
       noStroke();
     } else {
       noFill();
-      stroke(200); 
+      stroke(200);
       strokeWeight(1);
     }
-    
+
     // Draw the square directly at x, y without rotation
     rect(x, y, 15, 15);
   }
@@ -53,18 +64,18 @@ function draw() {
 
   // --- ROTATING LINES (Seconds) ---
   push();
-    translate(centerX, centerY);
-    rotate(sec * 6);
-    stroke(50,100,255, 75);
-    strokeWeight(1);
-    line(0, 0, 0, s);     
-    line(0, 0, 0, -s);    
-    line(0, 0, s, 0);     
-    line(0, 0, -s, 0);    
-    line(-s, -s, s, s);   
-    line(s, -s, -s, s); 
-    
-       //line(centerX, centerY, mouseX, mouseY);     
+  translate(centerX, centerY);
+  rotate(sec * 6);
+  stroke(50, 100, 255, 75);
+  strokeWeight(1);
+  line(0, 0, 0, s);
+  line(0, 0, 0, -s);
+  line(0, 0, s, 0);
+  line(0, 0, -s, 0);
+  line(-s, -s, s, s);
+  line(s, -s, -s, s);
+
+  //line(centerX, centerY, mouseX, mouseY);
 
   pop();
 
