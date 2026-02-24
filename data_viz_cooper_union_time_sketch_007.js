@@ -52,11 +52,11 @@ function draw() {
   text(sec, centerX, centerY + 250);
 
   // --- 4. UI LABELS ---
-  textSize(13.6);
+  textSize(13.8);
   fill(150, 0, 255, 100);
   text('< H O U R S >', centerX, centerY - 176);
   fill(150, 200, 255, 255);
-  text('M I N U T E S', centerX, centerY + 4);
+    text('    M       I       N       U       T       E       S    ', centerX, centerY + 4);
   fill(0, 200, 150, 200);
   text('S E C O N D S', centerX, centerY + 184);
 
@@ -73,8 +73,6 @@ function draw() {
     line(-s, -s, s, s);
     line(s, -s, -s, s);
   pop();
-  
-  
 
   // --- 6. HOUR BARS ---
   noStroke(); // Ensure stroke is off for rects
