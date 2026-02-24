@@ -5,7 +5,7 @@ function setup() {
 }
 
 function draw() {
-  background(240);
+  background(255);
 
   let centerX = width / 2;
   let centerY = height / 2;
